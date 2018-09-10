@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Excl Sheet.png-a4d3baddf24308e8a309ba11ea0df8df.stex"
+
+[deps]
+
+source_file="res://Sprites/Emotes/Excl Sheet.png"
+source_md5="1e85441a01d82f4546ece7abe834da50"
+
+dest_files=[ "res://.import/Excl Sheet.png-a4d3baddf24308e8a309ba11ea0df8df.stex" ]
+dest_md5="5799773e2481fc9ace145416a66ab368"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

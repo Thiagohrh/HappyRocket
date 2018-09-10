@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/StarShip.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Ship.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/smoke-17.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Fire.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/red ball.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -61,7 +62,12 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Gravity", "Initial Velocity", "Scale", "Spread" ]
 
-[node name="StarShip" type="KinematicBody2D" index="0"]
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 21.3518
+
+[node name="StarShip" type="KinematicBody2D"]
 
 position = Vector2( 488, 282 )
 input_pickable = false
@@ -138,6 +144,31 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
+[node name="FieldOfView" type="Area2D" parent="." index="5"]
+
+editor/display_folded = true
+scale = Vector2( 7, 7 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="FieldOfView" index="0"]
+
+modulate = Color( 0, 0.109375, 1, 0.442 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FieldOfView" index="1"]
+
+shape = SubResource( 5 )
+
 [connection signal="timeout" from="WanderStable" to="." method="_on_WanderStable_timeout"]
+
+[connection signal="area_entered" from="FieldOfView" to="." method="_on_FieldOfView_area_entered"]
 
 

@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Hmm Sheet.png-d325990cfc1b7c55b8f44bbb048ae95f.stex"
+
+[deps]
+
+source_file="res://Sprites/Emotes/Hmm Sheet.png"
+source_md5="a5de2506eb372be1d06312bcc317d22b"
+
+dest_files=[ "res://.import/Hmm Sheet.png-d325990cfc1b7c55b8f44bbb048ae95f.stex" ]
+dest_md5="85c5031790317cfe0a01b00b688e3c75"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

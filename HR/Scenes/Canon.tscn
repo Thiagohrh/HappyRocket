@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Canon.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/PursuitBullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Canons.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Canons.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -21,13 +20,14 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-seek_bullet = ExtResource( 2 )
+spawn_object = null
 shoot_direction = null
+speed = null
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 vframes = 4
 hframes = 3
 _sections_unfolded = [ "Animation", "Transform" ]

@@ -1,0 +1,126 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scripts/Emotes/Emotes.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Emotes/Hmm Sheet.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Emotes/No1 Sheet.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Emotes/Rice Sheet.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Emotes/Swt Sheet.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Emotes/Excl Sheet.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Emotes/diz.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Emotes/diz.tres" type="Animation" id=8]
+[ext_resource path="res://Animations/Emoctions/hmm.tres" type="Animation" id=9]
+[ext_resource path="res://Animations/Emoctions/no1.tres" type="Animation" id=10]
+[ext_resource path="res://Animations/Emoctions/rice.tres" type="Animation" id=11]
+[ext_resource path="res://Animations/Emoctions/swt.tres" type="Animation" id=12]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "shit"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Emoctions/shit:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Emoctions/shit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+
+[node name="Emote_machine" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="Emoctions" type="Node2D" parent="." index="0"]
+
+[node name="hmm" type="Sprite" parent="Emoctions" index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 2 )
+hframes = 15
+frame = 14
+_sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="no1" type="Sprite" parent="Emoctions" index="1"]
+
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 3 )
+hframes = 16
+frame = 15
+_sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="rice" type="Sprite" parent="Emoctions" index="2"]
+
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 4 )
+hframes = 17
+_sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="swt" type="Sprite" parent="Emoctions" index="3"]
+
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 5 )
+hframes = 13
+frame = 12
+_sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="shit" type="Sprite" parent="Emoctions" index="4"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 3, -17 )
+texture = ExtResource( 6 )
+hframes = 16
+frame = 15
+_sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="diz" type="Sprite" parent="Emoctions" index="5"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 3, -17 )
+texture = ExtResource( 7 )
+hframes = 29
+frame = 28
+_sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/diz = ExtResource( 8 )
+anims/hmm = ExtResource( 9 )
+anims/no1 = ExtResource( 10 )
+anims/rice = ExtResource( 11 )
+anims/shit = SubResource( 1 )
+anims/swt = ExtResource( 12 )
+blend_times = [  ]
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

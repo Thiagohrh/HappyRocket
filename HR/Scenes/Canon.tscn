@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Canon.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/PursuitBullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Canons.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[node name="Canon" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+seek_bullet = ExtResource( 2 )
+shoot_direction = null
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+vframes = 4
+hframes = 3
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="BulletContainer" type="Node2D" parent="." index="1"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+

@@ -1,0 +1,424 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/StarShip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/CanonHolders.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Canon.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Theme" id=1]
+
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 2.82547, 305.208 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 514.083, 2.77008 )
+
+[node name="Game" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer" parent="." index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Info Holder" type="Control" parent="HUD" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="RelevantInfo" type="CenterContainer" parent="HUD/Info Holder" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 648.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Label" type="Label" parent="HUD/Info Holder/RelevantInfo" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 648.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "The ship shows a basic implementation of Steering Behaviours,
+acoording with the learning guide found in 
+\"https://gamedevelopment.tutsplus.com/series/understanding-steering-behaviors--gamedev-12732\".
+Click the buttons on the right to change behaviours!
+(\"Arrival\" behaviour already implemented)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Credits" type="Label" parent="HUD/Info Holder" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 583.0
+margin_right = 656.0
+margin_bottom = 597.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Programmer: Thiago Henrique Rodrigues Hardt. A college project for AI in Games, Unisinos, 08/2018."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Exit Instructions" type="Label" parent="HUD/Info Holder" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 905.0
+margin_top = 1.0
+margin_right = 1022.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Press \"Esc to exit\""
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Buttons" type="Control" parent="HUD" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/Buttons" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 819.0
+margin_top = 3.0
+margin_right = 989.0
+margin_bottom = 598.0
+rect_min_size = Vector2( 170, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Buttons/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 241.0
+margin_right = 170.0
+margin_bottom = 353.0
+rect_min_size = Vector2( 170, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Seek" type="Button" parent="HUD/Buttons/CenterContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 170.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 85, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "The basic Steering Behaviour : seek. Goes towards the mouse!"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 1 )
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Seek"
+flat = false
+align = 1
+_sections_unfolded = [ "Hint", "Mouse", "Rect", "Textures", "Theme" ]
+
+[node name="Flee" type="Button" parent="HUD/Buttons/CenterContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 34.0
+margin_right = 170.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 85, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Flee from the mouse current position."
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 1 )
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Flee"
+flat = false
+align = 1
+_sections_unfolded = [ "Hint", "Mouse", "Rect", "Textures", "Theme" ]
+
+[node name="Wander" type="Button" parent="HUD/Buttons/CenterContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 68.0
+margin_right = 170.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "A random movement behaviour. Used by calculating a displacement Vector2."
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Wander"
+flat = false
+align = 1
+_sections_unfolded = [ "Hint", "Rect" ]
+
+[node name="Pursuit" type="Button" parent="HUD/Buttons/CenterContainer/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 92.0
+margin_right = 170.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Pursuit"
+flat = false
+align = 1
+
+[node name="StarShip" parent="." index="1" instance=ExtResource( 2 )]
+
+[node name="Walls" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D" index="0"]
+
+position = Vector2( 3.32411, 298.061 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls" index="1"]
+
+editor/display_folded = true
+position = Vector2( 1019.99, 3.3241 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2" index="0"]
+
+position = Vector2( 3.32411, 298.061 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls" index="2"]
+
+editor/display_folded = true
+position = Vector2( 511.802, -297.572 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3" index="0"]
+
+position = Vector2( 3.32411, 298.061 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls" index="3"]
+
+editor/display_folded = true
+position = Vector2( 508.101, 305.729 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4" index="0"]
+
+position = Vector2( 3.32411, 298.061 )
+shape = SubResource( 3 )
+
+[node name="CanonHolders" type="Node" parent="." index="3"]
+
+editor/display_folded = true
+script = ExtResource( 3 )
+
+[node name="Canon" parent="CanonHolders" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 140.72, 601.662 )
+shoot_direction = "up"
+
+[node name="Canon2" parent="CanonHolders" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 367.867, 604.986 )
+shoot_direction = "up"
+
+[node name="Canon3" parent="CanonHolders" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 610.526, 603.878 )
+shoot_direction = "up"
+
+[node name="Canon4" parent="CanonHolders" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 856.51, 601.662 )
+shoot_direction = "up"
+
+[node name="Canon5" parent="CanonHolders" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 128.532, 3.3241 )
+rotation = 3.14159
+shoot_direction = "down"
+
+[node name="Canon6" parent="CanonHolders" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 374.515, 7.75623 )
+rotation = 3.14159
+shoot_direction = "down"
+
+[node name="Canon7" parent="CanonHolders" index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 616.066, 8.86427 )
+rotation = 3.14159
+shoot_direction = "down"
+
+[node name="Canon8" parent="CanonHolders" index="7" instance=ExtResource( 4 )]
+
+position = Vector2( 847.645, 11.0803 )
+rotation = 3.14159
+shoot_direction = "down"
+
+[connection signal="pressed" from="HUD/Buttons/CenterContainer/VBoxContainer/Seek" to="." method="_on_Seek_pressed"]
+
+[connection signal="pressed" from="HUD/Buttons/CenterContainer/VBoxContainer/Flee" to="." method="_on_Flee_pressed"]
+
+[connection signal="pressed" from="HUD/Buttons/CenterContainer/VBoxContainer/Wander" to="." method="_on_Wander_pressed"]
+
+[connection signal="pressed" from="HUD/Buttons/CenterContainer/VBoxContainer/Pursuit" to="CanonHolders" method="_on_Pursuit_pressed"]
+
+

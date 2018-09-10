@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/PursuitBullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Target.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/target-1.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 12.6984
+
+[node name="Target" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+region_enabled = false
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+
